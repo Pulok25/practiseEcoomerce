@@ -1,36 +1,31 @@
-import React from 'react'
+import React from 'react';
 import products from './products';
+
+import ProductCard from './ProductCard';
 
 
 const FeaturedProducts = () => {
 
 
-  
+
   return (
-    <div>
+   <section className='container mx-auto py-12'>
+    <div className='max-w-lg mx-auto text-center py-4 space-y-4'>
+       <h1 className='text-4xl mb-4 font-bold'>Featured Products</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam distinctio iusto impedit!</p>
+    </div>
+     <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
       {
         products.map(product => {
           return (
-            <div key={product.id} className="card bg-base-100 w-96 shadow-sm">
-  <figure>
-    <img
-      src={product.img}
-      alt="Shoes" />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">{product.title}</h2>
-    <p>{product.description}</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
-          )
+            <ProductCard product={product} key={product.id}/>
+          );
 
         })
       }
     </div>
-  )
-}
+   </section>
+  );
+};
 
-export default FeaturedProducts
+export default FeaturedProducts;
